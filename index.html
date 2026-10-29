@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Feng's Garage | in Bangkal, Makati</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;1,600;1,800&family=Titillium+Web:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+      try {
+        if (sessionStorage.getItem("tfgIntroSeen")) {
+          document.documentElement.classList.add("intro-seen");
+        } else {
+          sessionStorage.setItem("tfgIntroSeen", "1");
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" id="intro-skip" hidden />
+    <label class="tfg-intro" for="intro-skip" aria-hidden="true">
+      <span class="tfg-logo">
+        <img src="assets/tfg-intro-logo.png" alt="" />
+        <img class="shine" src="assets/tfg-intro-logo.png" alt="" />
+      </span>
+    </label>
+
+    <header>
+      <input type="checkbox" id="nav-toggle" />
+      <div class="wrap nav">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">
+            <svg
+              class="brand-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="5.5" cy="17" r="3.5" />
+              <circle cx="18.5" cy="17" r="3.5" />
+              <path d="M5.5 17h5l3-8h3" />
+              <path d="M14 9l2.5 8" />
+              <path d="M13 6h3" />
+            </svg>
+            <img
+              class="brand-logo"
+              src="assets/logo.png"
+              alt="The Feng's Garage logo"
+              onerror="this.remove()"
+            />
+          </span>
+          <span>The Feng's Garage</span>
+        </a>
+        <nav>
+          <a class="active" href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="parts.php">Parts</a>
+          <a href="about.html">About</a>
+          <a href="gallery.html">Gallery</a>
+        </nav>
+        <a class="btn" href="booking.html">Book a Service</a>
+        <label class="menu-btn" for="nav-toggle" aria-label="Open menu"
+          ><span></span><span></span><span></span
+        ></label>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-text">
+          <p class="small-text">Bangkal, Makati &middot; by appointment</p>
+          <h1><span class="line">THE FENG'S</span> <em>Garage</em></h1>
+        </div>
+
+        <div class="cards">
+          <label class="card">
+            <input type="checkbox" />
+            <div class="card-inner">
+              <div class="face front">
+                <div class="front-text">
+                  <span class="number">01</span>
+                  <h3>Services</h3>
+                  <p>PMS, CVT, brakes, tires and electrical.</p>
+                  <span class="hint">Click to flip</span>
+                </div>
+              </div>
+              <div class="face back">
+                <h3>Services</h3>
+                <p>PMS, CVT, brakes, tires and electrical.</p>
+                <a class="btn" href="services.html">Open Services</a>
+              </div>
+            </div>
+          </label>
+
+          <label class="card">
+            <input type="checkbox" />
+            <div class="card-inner">
+              <div class="face front">
+                <div class="front-text">
+                  <span class="number">02</span>
+                  <h3>Parts</h3>
+                  <p>Parts for your scooter. Message us to ask.</p>
+                  <span class="hint">Click to flip</span>
+                </div>
+              </div>
+              <div class="face back">
+                <h3>Parts</h3>
+                <p>Parts for your scooter. Message us to ask.</p>
+                <a class="btn" href="parts.php">Open Parts</a>
+              </div>
+            </div>
+          </label>
+
+          <label class="card">
+            <input type="checkbox" />
+            <div class="card-inner">
+              <div class="face front">
+                <div class="front-text">
+                  <span class="number">03</span>
+                  <h3>About</h3>
+                  <p>Learn more about us and our services.</p>
+                  <span class="hint">Click to flip</span>
+                </div>
+              </div>
+              <div class="face back">
+                <h3>About</h3>
+                <p>Appointments, payment and what to expect.</p>
+                <a class="btn" href="about.html">Open About</a>
+              </div>
+            </div>
+          </label>
+
+          <label class="card">
+            <input type="checkbox" />
+            <div class="card-inner">
+              <div class="face front">
+                <div class="front-text">
+                  <span class="number">04</span>
+                  <h3>Gallery</h3>
+                  <p>A look at the shop and the work.</p>
+                  <span class="hint">Click to flip</span>
+                </div>
+              </div>
+              <div class="face back">
+                <h3>Gallery</h3>
+                <p>A look at the shop and the work.</p>
+                <a class="btn" href="gallery.html">Open Gallery</a>
+              </div>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <div class="checkers"></div>
+
+      <section class="block dark" id="why">
+        <div class="wrap">
+          <h2>Why TFG</h2>
+          <p class="sub">
+            A rider's garage in Bangkal, Makati, built around one bike.
+          </p>
+          <div class="grid4">
+            <div class="cell">
+              <h3>Specialized</h3>
+              <p>
+                We work with kymco and other services , so every job is familiar
+                work.
+              </p>
+            </div>
+            <div class="cell">
+              <h3>Professional</h3>
+              <p>
+                Maintenance and repair covering PMS, CVT, brakes, tires, and
+                electrical.
+              </p>
+            </div>
+            <div class="cell">
+              <h3>Personalized</h3>
+              <p>
+                Service is by appointment, so you get a schedule made for you.
+              </p>
+            </div>
+            <div class="cell">
+              <h3>Reliable</h3>
+              <p>
+                Most services take around 10 to 30 minutes. Bigger jobs can stay at
+                the shop.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="services">
+        <div class="wrap">
+          <h2>What we do</h2>
+          <p class="sub">
+            Maintenance and repair services for Kymco and other motorcycle
+            brands. Not sure which one you need? Send us a message and we'll
+            point you the right way.
+          </p>
+          <div class="grid4">
+            <div class="cell">
+              <b>01</b>
+              <h3>PMS and Oil Change</h3>
+              <p>
+                Regular maintenance, inspection, and engine oil replacement.
+              </p>
+            </div>
+            <div class="cell">
+              <b>02</b>
+              <h3>CVT Service</h3>
+              <p>CVT inspection and servicing.</p>
+            </div>
+            <div class="cell">
+              <b>03</b>
+              <h3>Brakes and Tires</h3>
+              <p>Brake and tire-related service.</p>
+            </div>
+            <div class="cell">
+              <b>04</b>
+              <h3>Electrical</h3>
+              <p>Electrical inspection and repair.</p>
+            </div>
+          </div>
+          <div class="buttons" style="margin-top: 28px">
+            <a class="btn light" href="services.html">View all services</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing hidden until real prices are ready. To show it again, delete this line and the closing arrow line below the section, and replace XXX with the prices.
+      <section class="block" id="pricing">
+        <div class="wrap split">
+          <div>
+            <h2>Service starts at</h2>
+            <p class="sub" style="margin-bottom: 18px">
+              Final pricing may vary depending on the service required. Message
+              us for an exact quote.
+            </p>
+            <p class="note" style="margin: 0 0 22px">
+              Starting prices will be added once TFG confirms them.
+            </p>
+          </div>
+          <ul class="prices">
+            <li>PMS <span>&#8369;XXX</span></li>
+            <li>Oil Change <span>&#8369;XXX</span></li>
+            <li>CVT Service <span>&#8369;XXX</span></li>
+            <li>Brakes and Tires <span>&#8369;XXX</span></li>
+            <li>Electrical <span>&#8369;XXX</span></li>
+          </ul>
+        </div>
+      </section>
+      -->
+
+      <section class="contact" id="contact">
+        <div class="wrap">
+          <h2>Have questions about your bike?</h2>
+          <p>
+            Ask about services, pricing, appointments, and availability on
+            Facebook, or call the shop.
+          </p>
+          <div class="buttons">
+            <a class="btn" href="https://m.me/thefengsgarage" target="_blank"
+              >Message TFG on Facebook</a
+            >
+            <a class="btn" href="tel:+639177043243">Call the shop</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="index.html">
+              <span class="brand-mark">
+                <svg
+                  class="brand-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="5.5" cy="17" r="3.5" />
+                  <circle cx="18.5" cy="17" r="3.5" />
+                  <path d="M5.5 17h5l3-8h3" />
+                  <path d="M14 9l2.5 8" />
+                  <path d="M13 6h3" />
+                </svg>
+                <img
+                  class="brand-logo"
+                  src="assets/logo.png"
+                  alt="The Feng's Garage logo"
+                  onerror="this.remove()"
+                />
+              </span>
+              <span>The Feng's Garage</span>
+            </a>
+            <p>TFG in Bangkal, Makati. Service by appointment.</p>
+          </div>
+          <div>
+            <h4>Pages</h4>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="parts.php">Parts</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Visit and contact</h4>
+            <ul>
+              <li>3759 Estrella St., Bangkal, Makati City</li>
+              <li>Near the Phoenix gasoline station</li>
+              <li>Schedule: By appointment</li>
+              <li>Payment: GCash or Cash</li>
+              <li><a href="tel:+639177043243">+63 917 704 3243</a></li>
+              <li>
+                <a
+                  href="https://www.facebook.com/thefengsgarage/"
+                  target="_blank"
+                  >Facebook: The Feng's Garage</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          &copy; 2026 The Feng's Garage. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

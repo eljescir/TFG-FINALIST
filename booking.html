@@ -1,0 +1,2487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book a Service | The Feng's Garage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;1,600;1,800&family=Titillium+Web:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+      document.documentElement.classList.add("tfg-js");
+    </script>
+  </head>
+  <body>
+    <header>
+      <input type="checkbox" id="nav-toggle" />
+      <div class="wrap nav">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">
+            <svg
+              class="brand-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="5.5" cy="17" r="3.5" />
+              <circle cx="18.5" cy="17" r="3.5" />
+              <path d="M5.5 17h5l3-8h3" />
+              <path d="M14 9l2.5 8" />
+              <path d="M13 6h3" />
+            </svg>
+            <img
+              class="brand-logo"
+              src="assets/logo.png"
+              alt="The Feng's Garage logo"
+              onerror="this.remove()"
+            />
+          </span>
+          <span>The Feng's Garage</span>
+        </a>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="parts.php">Parts</a>
+          <a href="about.html">About</a>
+          <a href="gallery.html">Gallery</a>
+        </nav>
+        <a class="btn" href="booking.html">Book a Service</a>
+        <label class="menu-btn" for="nav-toggle" aria-label="Open menu"
+          ><span></span><span></span><span></span
+        ></label>
+      </div>
+    </header>
+
+    <main>
+      <section class="book-page">
+        <div class="book-head">
+          <p class="small-text">Bangkal, Makati &middot; by appointment</p>
+          <h1>Book a <em>Service</em></h1>
+        </div>
+
+        <div id="booking-root">
+          <div class="bk-modal bk-inline">
+            <form
+              class="bk-form"
+              action="save_booking.php"
+              method="POST"
+            >
+              <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+                <label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+              </div>
+              <input
+                type="hidden"
+                name="_subject"
+                value="New TFG booking request"
+              />
+
+              <input
+                class="bk-st"
+                type="radio"
+                name="bk-step"
+                id="bk-s1"
+                checked
+                tabindex="-1"
+              />
+              <input
+                class="bk-st"
+                type="radio"
+                name="bk-step"
+                id="bk-s2"
+                tabindex="-1"
+              />
+              <input
+                class="bk-st"
+                type="radio"
+                name="bk-step"
+                id="bk-s3"
+                tabindex="-1"
+              />
+
+              <label
+                class="bk-arrow ba-2"
+                for="bk-s1"
+                tabindex="0"
+                role="button"
+                aria-label="Back to previous step"
+                title="Back"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M19 12H5" />
+                  <path d="M12 19l-7-7 7-7" />
+                </svg>
+              </label>
+              <label
+                class="bk-arrow ba-3"
+                for="bk-s2"
+                tabindex="0"
+                role="button"
+                aria-label="Back to previous step"
+                title="Back"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M19 12H5" />
+                  <path d="M12 19l-7-7 7-7" />
+                </svg>
+              </label>
+
+              <div class="bk-progress" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="bk-stepname">
+                <span class="n1">Step 1 of 3 &middot; Service details</span>
+                <span class="n2">Step 2 of 3 &middot; Personal info</span>
+                <span class="n3">Step 3 of 3 &middot; Payment</span>
+              </div>
+
+              <div class="bk-panel p1">
+                <div class="bk-title">Book your Motorcycle Service</div>
+
+                <div class="bk-row">
+                  <label class="bk-field big"
+                    ><span class="bk-label">Select Service</span>
+                    <select name="service" required>
+                      <option value="" disabled selected>
+                        Choose a service
+                      </option>
+                      <option>PMS</option>
+                      <option>Oil Change</option>
+                      <option>CVT Service</option>
+                      <option>Brakes and Tires</option>
+                      <option>Electrical</option>
+                      <option>Not sure / Other</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div class="bk-row two">
+                  <label class="bk-field"
+                    ><span class="bk-label">Select Motorcycle brand</span>
+                    <select name="brand" required>
+                      <option value="" disabled selected>Choose brand</option>
+                      <option>Kymco</option>
+                    </select>
+                  </label>
+                  <label class="bk-field"
+                    ><span class="bk-label">Motorcycle model</span>
+                    <input
+                      name="model"
+                      type="text"
+                      placeholder="e.g. Like 150i"
+                      autocomplete="off"
+                      required
+                    />
+                  </label>
+                </div>
+
+                <div class="bk-row two">
+                  <label class="bk-field"
+                    ><span class="bk-label">Select Year model</span>
+                    <select name="year" required>
+                      <option value="" disabled selected>Select year</option>
+                      <option>2026</option>
+                      <option>2025</option>
+                      <option>2024</option>
+                      <option>2023</option>
+                      <option>2022</option>
+                      <option>2021</option>
+                      <option>2020</option>
+                      <option>2019</option>
+                      <option>2018</option>
+                      <option>2017</option>
+                      <option>2016</option>
+                      <option>2015</option>
+                      <option>2014</option>
+                      <option>2013</option>
+                      <option>2012</option>
+                      <option>2011</option>
+                      <option>2010</option>
+                      <option>2009</option>
+                      <option>2008</option>
+                      <option>2007</option>
+                      <option>2006</option>
+                      <option>2005</option>
+                      <option>2004</option>
+                      <option>2003</option>
+                      <option>2002</option>
+                      <option>2001</option>
+                      <option>2000</option>
+                      <option>Older than 2000</option>
+                    </select>
+                  </label>
+                  <div class="bk-toggles">
+                    <input
+                      type="radio"
+                      name="transmission"
+                      id="bk-auto"
+                      value="Automatic"
+                      required
+                    />
+                    <input
+                      type="radio"
+                      name="transmission"
+                      id="bk-man"
+                      value="Manual"
+                    />
+                    <label class="bk-tog" for="bk-auto">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="5.5" cy="17" r="3.5" />
+                        <circle cx="18.5" cy="17" r="3.5" />
+                        <path d="M5.5 17h5l3-8h3" />
+                        <path d="M14 9l2.5 8" /></svg
+                      >Auto
+                    </label>
+                    <label class="bk-tog" for="bk-man">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="3" />
+                        <path
+                          d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"
+                        /></svg
+                      >Manual
+                    </label>
+                  </div>
+                </div>
+
+                <div class="bk-row">
+                  <div class="bk-field big">
+                    <span class="bk-label">Preferred date &amp; time</span>
+                    <div class="tfg-cal-wrap" id="tfg-cal-wrap">
+                      <input
+                        type="text"
+                        id="tfg-date-shown"
+                        class="tfg-cal-input"
+                        placeholder="Choose a date and time"
+                        required
+                        autocomplete="off"
+                        inputmode="none"
+                        aria-haspopup="dialog"
+                      />
+                      <input type="hidden" name="date" id="tfg-date-value" />
+                      <input type="hidden" name="time" id="tfg-time-value" />
+                      <div
+                        class="tfg-cal"
+                        id="tfg-cal"
+                        role="dialog"
+                        aria-label="Choose a booking date and time"
+                      ></div>
+                      <small
+                        class="tfg-slotnote"
+                        id="tfg-date-note"
+                        aria-live="polite"
+                      ></small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bk-hint h1">
+                  Please fill in all required fields to continue.
+                </div>
+                <label class="bk-btn go1" for="bk-s2" tabindex="0"
+                  >&raquo; Continue &laquo;</label
+                >
+              </div>
+
+              <div class="bk-panel p2">
+                <div class="bk-title">Your personal information</div>
+
+                <div class="bk-row">
+                  <label class="bk-field"
+                    ><span class="bk-label">Full name</span>
+                    <input
+                      name="name"
+                      type="text"
+                      autocomplete="name"
+                      placeholder="Juan Dela Cruz"
+                      required
+                    />
+                  </label>
+                </div>
+                <div class="bk-row two">
+                  <label class="bk-field"
+                    ><span class="bk-label">Mobile number</span>
+                    <input
+                      name="phone"
+                      type="tel"
+                      inputmode="tel"
+                      autocomplete="tel"
+                      placeholder="09171234567"
+                      pattern="(\+63|0)9[0-9]{9}"
+                      title="Use a PH mobile number like 09171234567"
+                      required
+                    />
+                  </label>
+                  <label class="bk-field"
+                    ><span class="bk-label">Gmail address</span>
+                    <input
+                      id="tfg-email"
+                      name="email"
+                      type="email"
+                      inputmode="email"
+                      autocomplete="email"
+                      autocapitalize="off"
+                      spellcheck="false"
+                      maxlength="254"
+                      placeholder="yourname@gmail.com"
+                      pattern="[A-Za-z0-9._%+\-]+@[Gg][Mm][Aa][Ii][Ll]\.[Cc][Oo][Mm]"
+                      title="Please use a Gmail address, like yourname@gmail.com"
+                      required
+                    />
+                  </label>
+                </div>
+                <div class="bk-row">
+                  <label class="bk-field"
+                    ><span class="bk-label">Concern / notes (optional)</span>
+                    <input
+                      name="notes"
+                      type="text"
+                      placeholder="e.g. noise when braking"
+                      autocomplete="off"
+                    />
+                  </label>
+                </div>
+
+                <div class="bk-hint h2">
+                  Please enter your name, a valid mobile number and a Gmail
+                  address (@gmail.com) to continue.
+                </div>
+                <label class="bk-btn go2" for="bk-s3" tabindex="0"
+                  >&raquo; Continue &laquo;</label
+                >
+              </div>
+
+              <div class="bk-panel p3">
+                <div class="bk-title">Choose your payment method</div>
+
+                <div class="bk-payzone tfg-pay">
+                  <input type="hidden" name="booking_ref" id="tfg-ref-input" />
+
+                  <details class="tfg-pg" open>
+                    <summary>
+                      <span class="tfg-pg-ico"
+                        ><svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <rect x="2" y="5" width="20" height="14" rx="2" />
+                          <path d="M2 10h20" />
+                          <path d="M6 15h4" /></svg
+                      ></span>
+                      <span class="tfg-pg-txt"
+                        ><b>Credit / Debit Card</b
+                        ><small>Visa, Mastercard, JCB</small></span
+                      >
+                      <em class="tfg-pg-sel"></em
+                      ><span class="tfg-pg-chev" aria-hidden="true"></span>
+                    </summary>
+                    <div class="tfg-opts one">
+                      <label class="tfg-opt">
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="Credit/Debit Card"
+                          data-group="card"
+                          data-label="Card"
+                          required
+                        />
+                        <span class="tfg-opt-box"
+                          >Credit / Debit Card<small
+                            >Visa &middot; Mastercard &middot; JCB</small
+                          ></span
+                        >
+                      </label>
+                    </div>
+
+                    <div class="tfg-form" id="tfg-form-card" hidden>
+                      <h4>
+                        Card details
+                        <span class="tfg-tag" id="tfg-card-tag"
+                          >Preview &middot; not sent</span
+                        >
+                      </h4>
+                      <div class="tfg-fgrid">
+                        <label class="tfg-ff wide"
+                          ><span
+                            >Card number
+                            <em class="tfg-brand" id="tfg-card-brand"></em
+                          ></span>
+                          <input
+                            id="tfg-cc-number"
+                            type="text"
+                            inputmode="numeric"
+                            autocomplete="cc-number"
+                            placeholder="1234 5678 9012 3456"
+                            maxlength="19"
+                            data-v="cardnum"
+                            data-req
+                            disabled
+                          />
+                        </label>
+                        <label class="tfg-ff wide"
+                          ><span>Name on card</span>
+                          <input
+                            id="tfg-cc-name"
+                            type="text"
+                            autocomplete="cc-name"
+                            placeholder="JUAN DELA CRUZ"
+                            maxlength="60"
+                            data-v="cardname"
+                            data-req
+                            disabled
+                          />
+                        </label>
+                        <label class="tfg-ff wide tfg-check">
+                          <input
+                            type="checkbox"
+                            class="tfg-copyname"
+                            data-target="tfg-cc-name"
+                            data-upper
+                            disabled
+                          />
+                          <span>Use the name I entered in step 2</span>
+                        </label>
+                        <label class="tfg-ff"
+                          ><span>Expiry date</span>
+                          <input
+                            id="tfg-cc-exp"
+                            type="text"
+                            inputmode="numeric"
+                            autocomplete="cc-exp"
+                            placeholder="MM/YY"
+                            maxlength="5"
+                            data-v="exp"
+                            data-req
+                            disabled
+                          />
+                        </label>
+                        <label class="tfg-ff"
+                          ><span>CVV</span>
+                          <input
+                            id="tfg-cc-cvv"
+                            type="password"
+                            inputmode="numeric"
+                            autocomplete="cc-csc"
+                            placeholder="123"
+                            maxlength="3"
+                            data-v="cvv"
+                            data-req
+                            disabled
+                          />
+                        </label>
+                      </div>
+                      <input
+                        type="hidden"
+                        name="payment_token"
+                        id="tfg-pay-token"
+                        disabled
+                      />
+                      <p class="tfg-secure">
+                        Card details are never emailed or stored by TFG. They
+                        only go to the secure payment gateway once it is
+                        connected.
+                      </p>
+                    </div>
+                  </details>
+
+                  <details class="tfg-pg">
+                    <summary>
+                      <span class="tfg-pg-ico"
+                        ><svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M3 10l9-6 9 6" />
+                          <path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8" />
+                          <path d="M3 21h18" /></svg
+                      ></span>
+                      <span class="tfg-pg-txt"
+                        ><b>Online Banking</b
+                        ><small
+                          >Pay from your bank's app or website</small
+                        ></span
+                      >
+                      <em class="tfg-pg-sel"></em
+                      ><span class="tfg-pg-chev" aria-hidden="true"></span>
+                    </summary>
+                    <div class="tfg-opts">
+                      <label class="tfg-opt"
+                        ><input
+                          type="radio"
+                          name="payment"
+                          value="Online Banking - BDO"
+                          data-group="bank"
+                          data-label="BDO"
+                        /><span class="tfg-opt-box">BDO</span></label
+                      >
+                      <label class="tfg-opt"
+                        ><input
+                          type="radio"
+                          name="payment"
+                          value="Online Banking - BPI"
+                          data-group="bank"
+                          data-label="BPI"
+                        /><span class="tfg-opt-box">BPI</span></label
+                      >
+                      <label class="tfg-opt"
+                        ><input
+                          type="radio"
+                          name="payment"
+                          value="Online Banking - UnionBank"
+                          data-group="bank"
+                          data-label="UnionBank"
+                        /><span class="tfg-opt-box">UnionBank</span></label
+                      >
+                      <label class="tfg-opt"
+                        ><input
+                          type="radio"
+                          name="payment"
+                          value="Online Banking - Metrobank"
+                          data-group="bank"
+                          data-label="Metrobank"
+                        /><span class="tfg-opt-box">Metrobank</span></label
+                      >
+                      <label class="tfg-opt"
+                        ><input
+                          type="radio"
+                          name="payment"
+                          value="Online Banking - Landbank"
+                          data-group="bank"
+                          data-label="Landbank"
+                        /><span class="tfg-opt-box">Landbank</span></label
+                      >
+                      <label class="tfg-opt"
+                        ><input
+                          type="radio"
+                          name="payment"
+                          value="Online Banking - Security Bank"
+                          data-group="bank"
+                          data-label="Security Bank"
+                        /><span class="tfg-opt-box">Security Bank</span></label
+                      >
+                    </div>
+
+                    <div class="tfg-form" id="tfg-form-bank" hidden>
+                      <h4>Your <span id="tfg-bank-name">bank</span> account</h4>
+                      <div class="tfg-fgrid">
+                        <label class="tfg-ff wide"
+                          ><span>Account holder name</span>
+                          <input
+                            id="tfg-bank-holder"
+                            name="bank_account_name"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Name as shown on your account"
+                            maxlength="80"
+                            data-v="fullname"
+                            data-req
+                            disabled
+                          />
+                        </label>
+                        <label class="tfg-ff wide tfg-check">
+                          <input
+                            type="checkbox"
+                            class="tfg-copyname"
+                            data-target="tfg-bank-holder"
+                            disabled
+                          />
+                          <span>Use the name I entered in step 2</span>
+                        </label>
+                        <label class="tfg-ff"
+                          ><span>Last 4 digits of account no.</span>
+                          <input
+                            name="bank_last4"
+                            type="text"
+                            inputmode="numeric"
+                            autocomplete="off"
+                            placeholder="1234"
+                            pattern="[0-9]{4}"
+                            title="Enter the last 4 digits only"
+                            maxlength="4"
+                            data-v="last4"
+                            data-req
+                            disabled
+                          />
+                        </label>
+                        <label class="tfg-ff"
+                          ><span>Reference no. (optional)</span>
+                          <input
+                            name="bank_reference"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="From your bank receipt"
+                            maxlength="40"
+                            pattern="[A-Za-z0-9\- ]+"
+                            title="Letters, numbers and dashes only"
+                            disabled
+                          />
+                        </label>
+                      </div>
+                      <p class="tfg-secure">
+                        We only ask for the last 4 digits, so TFG can match your
+                        payment. Never type your full account number, online
+                        banking password, PIN or OTP here.
+                      </p>
+                    </div>
+                  </details>
+
+                  <details class="tfg-pg">
+                    <summary>
+                      <span class="tfg-pg-ico"
+                        ><svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <rect x="7" y="2" width="10" height="20" rx="2" />
+                          <path d="M11 18h2" /></svg
+                      ></span>
+                      <span class="tfg-pg-txt"
+                        ><b>E-Wallet</b
+                        ><small>GCash, Maya and more</small></span
+                      >
+                      <em class="tfg-pg-sel"></em
+                      ><span class="tfg-pg-chev" aria-hidden="true"></span>
+                    </summary>
+                    <div class="tfg-opts">
+                      <label class="tfg-opt"
+                        ><input
+                          type="radio"
+                          name="payment"
+                          value="E-Wallet - GCash"
+                          data-group="wallet"
+                          data-label="GCash"
+                        /><span class="tfg-opt-box">GCash</span></label
+                      >
+                      <label class="tfg-opt"
+                        ><input
+                          type="radio"
+                          name="payment"
+                          value="E-Wallet - Maya"
+                          data-group="wallet"
+                          data-label="Maya"
+                        /><span class="tfg-opt-box">Maya</span></label
+                      >
+                    </div>
+
+                    <div class="tfg-form" id="tfg-form-wallet" hidden>
+                      <h4>
+                        Your <span id="tfg-wallet-name">e-wallet</span> account
+                      </h4>
+
+                      <div class="tfg-sugg" id="tfg-wallet-send" hidden>
+                        <span
+                          >Send your payment to <b id="tfg-wallet-acct"></b
+                        ></span>
+                        <button
+                          type="button"
+                          class="tfg-copy"
+                          id="tfg-wallet-copy"
+                        >
+                          Copy number
+                        </button>
+                      </div>
+
+                      <div class="tfg-fgrid">
+                        <label class="tfg-ff"
+                          ><span>Your wallet mobile number</span>
+                          <input
+                            id="tfg-wallet-number"
+                            name="ewallet_number"
+                            type="tel"
+                            inputmode="tel"
+                            autocomplete="off"
+                            placeholder="09171234567"
+                            pattern="(\+63|0)9[0-9]{9}"
+                            title="Use a PH mobile number like 09171234567"
+                            data-v="phone"
+                            data-req
+                            disabled
+                          />
+                        </label>
+                        <label class="tfg-ff"
+                          ><span>Account name</span>
+                          <input
+                            id="tfg-wallet-holder"
+                            name="ewallet_name"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Name on your wallet"
+                            maxlength="80"
+                            data-v="fullname"
+                            data-req
+                            disabled
+                          />
+                        </label>
+                        <label class="tfg-ff wide tfg-check">
+                          <input
+                            type="checkbox"
+                            id="tfg-wallet-same"
+                            disabled
+                          />
+                          <span>Use the mobile number I entered in step 2</span>
+                        </label>
+                        <label class="tfg-ff wide tfg-check">
+                          <input
+                            type="checkbox"
+                            class="tfg-copyname"
+                            data-target="tfg-wallet-holder"
+                            disabled
+                          />
+                          <span
+                            >Use the name I entered in step 2 as the account
+                            name</span
+                          >
+                        </label>
+                        <label class="tfg-ff wide"
+                          ><span
+                            >Reference no. (optional, you can send it after
+                            paying)</span
+                          >
+                          <input
+                            name="ewallet_reference"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Reference number from your receipt"
+                            maxlength="40"
+                            pattern="[A-Za-z0-9\- ]+"
+                            title="Letters, numbers and dashes only"
+                            disabled
+                          />
+                        </label>
+                      </div>
+                      <p class="tfg-secure">
+                        Never share your MPIN or OTP with anyone, including TFG.
+                      </p>
+                    </div>
+                  </details>
+
+                  <details class="tfg-pg">
+                    <summary>
+                      <span class="tfg-pg-ico"
+                        ><svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <rect x="2" y="6" width="20" height="12" rx="2" />
+                          <circle cx="12" cy="12" r="3" />
+                          <path d="M6 12h.01M18 12h.01" /></svg
+                      ></span>
+                      <span class="tfg-pg-txt"
+                        ><b>Pay at the Shop</b
+                        ><small>Cash after the service</small></span
+                      >
+                      <em class="tfg-pg-sel"></em
+                      ><span class="tfg-pg-chev" aria-hidden="true"></span>
+                    </summary>
+                    <div class="tfg-opts one">
+                      <label class="tfg-opt">
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="Cash"
+                          data-group="cash"
+                          data-label="Cash"
+                        />
+                        <span class="tfg-opt-box"
+                          >Cash<small
+                            >Pay at the shop after the service</small
+                          ></span
+                        >
+                      </label>
+                    </div>
+
+                    <div class="tfg-form" id="tfg-form-cash" hidden>
+                      <h4>
+                        Reserve your slot
+                        <span class="tfg-tag tfg-tag--ok"
+                          >No payment needed now</span
+                        >
+                      </h4>
+
+                      <div class="tfg-ref">
+                        <span
+                          >Your booking reference<b id="tfg-ref-code"
+                            >TFG-------</b
+                          ></span
+                        >
+                        <button
+                          type="button"
+                          class="tfg-copy"
+                          id="tfg-ref-copy"
+                        >
+                          Copy code
+                        </button>
+                      </div>
+
+                      <fieldset class="tfg-fs">
+                        <legend>How should we confirm your slot?</legend>
+                        <div class="tfg-opts">
+                          <label class="tfg-opt"
+                            ><input
+                              type="radio"
+                              name="cash_confirm"
+                              value="Text message"
+                              data-v="pick"
+                              data-req
+                              disabled
+                            /><span class="tfg-opt-box"
+                              >Text message</span
+                            ></label
+                          >
+                          <label class="tfg-opt"
+                            ><input
+                              type="radio"
+                              name="cash_confirm"
+                              value="Email"
+                              data-v="pick"
+                              data-req
+                              disabled
+                            /><span class="tfg-opt-box">Email</span></label
+                          >
+                        </div>
+                      </fieldset>
+
+                      <label class="tfg-ff wide tfg-check tfg-policy">
+                        <input
+                          type="checkbox"
+                          name="cash_policy"
+                          value="Agreed"
+                          data-v="agree"
+                          data-req
+                          disabled
+                        />
+                        <span
+                          >I will arrive within
+                          <b data-cash="hold">15</b> minutes of my booked time.
+                          If I cannot come, I will tell the shop at least
+                          <b data-cash="cancel">2 hours</b> before. I understand
+                          my slot may be given to another customer if I do not
+                          show up.</span
+                        >
+                      </label>
+                      <p class="tfg-secure">
+                        Nothing is charged online. You pay in cash after the
+                        service. The shop confirms your slot the way you chose
+                        above and will ask for your booking reference.
+                      </p>
+                    </div>
+                  </details>
+
+                  <div
+                    class="tfg-pay-note"
+                    id="tfg-pay-note"
+                    aria-live="polite"
+                    hidden
+                  ></div>
+                </div>
+
+                <div class="bk-hint h3">Please choose a payment method.</div>
+
+                <div class="tfg-slide" id="tfg-slide" data-phase="idle">
+                  <div class="tfg-slide__track">
+                    <span class="tfg-slide__label" aria-hidden="true">
+                      <span class="tfg-slide__text tfg-slide__text--plain"
+                        >Slide to confirm booking</span
+                      >
+                      <span class="tfg-slide__text tfg-slide__text--error"
+                        >Please check your details</span
+                      >
+                    </span>
+                    <div
+                      class="tfg-slide__capsule"
+                      role="slider"
+                      tabindex="0"
+                      aria-label="Slide to confirm booking"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-valuenow="0"
+                    >
+                      <div class="tfg-slide__content">
+                        <span class="tfg-slide__arrow" aria-hidden="true">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="M13 6l6 6-6 6" />
+                          </svg>
+                        </span>
+                        <span
+                          class="tfg-slide__spin"
+                          aria-hidden="true"
+                          style="opacity: 0"
+                        >
+                          <svg
+                            class="tfg-slide__spinner"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              r="9"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2.4"
+                              stroke-opacity="0.25"
+                            />
+                            <path
+                              d="M12 3a9 9 0 0 1 9 9"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2.4"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </span>
+                        <span class="tfg-slide__done" aria-hidden="true">
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M5 12.5l4.5 4.5L19 7.5" />
+                          </svg>
+                          <span class="tfg-slide__donetext">Booked</span>
+                        </span>
+                      </div>
+                    </div>
+                    <span class="tfg-slide__sr" aria-live="polite"></span>
+                  </div>
+                </div>
+
+                <button
+                  class="bk-btn tfg-fallback-btn"
+                  id="tfg-submit"
+                  type="submit"
+                >
+                  &raquo; Confirm Booking &laquo;
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        var SLOTS_PER_TIME = 2;
+        var TIMES = [
+          { label: "9:00 AM", h: 9 },
+          { label: "10:00 AM", h: 10 },
+          { label: "11:00 AM", h: 11 },
+          { label: "1:00 PM", h: 13 },
+          { label: "2:00 PM", h: 14 },
+          { label: "3:00 PM", h: 15 },
+          { label: "4:00 PM", h: 16 },
+          { label: "5:00 PM", h: 17 },
+        ];
+        var SLOTS_URL = "slots.php";
+        var STORAGE_KEY = "tfg-booked-slots";
+        var CLOSED_WEEKDAYS = [];
+
+        var wrap = document.getElementById("tfg-cal-wrap");
+        var pop = document.getElementById("tfg-cal");
+        var shown = document.getElementById("tfg-date-shown");
+        var dateVal = document.getElementById("tfg-date-value");
+        var timeVal = document.getElementById("tfg-time-value");
+        var note = document.getElementById("tfg-date-note");
+        var form = wrap.closest("form");
+
+        var MONTHS = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        var DOW = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+        function pad(n) {
+          return String(n).padStart(2, "0");
+        }
+        function iso(y, m, d) {
+          return y + "-" + pad(m + 1) + "-" + pad(d);
+        }
+
+        var now = new Date();
+        var Y = now.getFullYear();
+        var todayISO = iso(Y, now.getMonth(), now.getDate());
+        var nowMinutes = now.getHours() * 60 + now.getMinutes();
+        var firstMonth = now.getMonth();
+        var lastMonth = 11;
+        var viewMonth = firstMonth;
+        var view = "cal";
+        var chosenDate = "";
+        var counts = {};
+
+        function loadLocal() {
+          try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+          } catch (e) {
+            return {};
+          }
+        }
+        function loadCounts() {
+          if (!SLOTS_URL) {
+            counts = loadLocal();
+            return Promise.resolve();
+          }
+          return fetch(SLOTS_URL, { cache: "no-store" })
+            .then(function (r) {
+              return r.json();
+            })
+            .then(function (d) {
+              counts = d || {};
+            })
+            .catch(function () {
+              counts = loadLocal();
+            });
+        }
+
+        function booked(key, label) {
+          var day = counts[key];
+          return day && typeof day === "object" ? Number(day[label] || 0) : 0;
+        }
+        function timePassed(key, t) {
+          return key === todayISO && t.h * 60 <= nowMinutes;
+        }
+        function timeLeft(key, t) {
+          return Math.max(0, SLOTS_PER_TIME - booked(key, t.label));
+        }
+        function isClosed(y, m, d) {
+          return CLOSED_WEEKDAYS.indexOf(new Date(y, m, d).getDay()) !== -1;
+        }
+
+        function dayStats(key) {
+          var left = 0,
+            total = 0;
+          TIMES.forEach(function (t) {
+            if (timePassed(key, t)) return;
+            total += SLOTS_PER_TIME;
+            left += timeLeft(key, t);
+          });
+          return { left: left, total: total };
+        }
+
+        function dayStatus(s) {
+          if (s.left <= 0) return "full";
+          if (s.left <= Math.ceil(s.total * 0.25)) return "low";
+          return "ok";
+        }
+        function timeStatus(left) {
+          if (left <= 0) return "full";
+          if (left <= Math.floor(SLOTS_PER_TIME / 2)) return "low";
+          return "ok";
+        }
+
+        function pretty(key) {
+          var p = key.split("-");
+          return MONTHS[Number(p[1]) - 1] + " " + Number(p[2]) + ", " + p[0];
+        }
+        function plural(n) {
+          return n + (n === 1 ? " slot" : " slots");
+        }
+
+        var LEGEND =
+          '<div class="tfg-cal-legend">' +
+          '<span><i style="background:#4caf50"></i>Available</span>' +
+          '<span><i style="background:#f5a623"></i>Almost full</span>' +
+          '<span><i style="background:#ff6b5b"></i>Fully booked</span></div>';
+
+        function renderMonth() {
+          var first = new Date(Y, viewMonth, 1).getDay();
+          var days = new Date(Y, viewMonth + 1, 0).getDate();
+          var h =
+            '<div class="tfg-cal-head">' +
+            '<button type="button" class="tfg-cal-nav" data-nav="-1" aria-label="Previous month"' +
+            (viewMonth <= firstMonth ? " disabled" : "") +
+            ">&lsaquo;</button>" +
+            "<b>" +
+            MONTHS[viewMonth] +
+            " " +
+            Y +
+            "</b>" +
+            '<button type="button" class="tfg-cal-nav" data-nav="1" aria-label="Next month"' +
+            (viewMonth >= lastMonth ? " disabled" : "") +
+            ">&rsaquo;</button></div>" +
+            '<div class="tfg-cal-grid">';
+          DOW.forEach(function (d) {
+            h += '<div class="tfg-cal-dow">' + d + "</div>";
+          });
+          for (var i = 0; i < first; i++)
+            h +=
+              '<button type="button" class="tfg-day empty" disabled tabindex="-1"></button>';
+          for (var d = 1; d <= days; d++) {
+            var key = iso(Y, viewMonth, d);
+            var s = dayStats(key);
+            var past =
+              key < todayISO || isClosed(Y, viewMonth, d) || s.total === 0;
+            var st = past ? "past" : dayStatus(s);
+            var sel = chosenDate === key || dateVal.value === key ? " sel" : "";
+            var dis = past || st === "full";
+            var sub = past
+              ? ""
+              : st === "full"
+                ? "<small>Full</small>"
+                : "<small>" + s.left + " left</small>";
+            h +=
+              '<button type="button" class="tfg-day ' +
+              st +
+              sel +
+              '" data-date="' +
+              key +
+              '"' +
+              (dis ? " disabled" : "") +
+              ' aria-label="' +
+              pretty(key) +
+              (st === "full" ? ", fully booked" : "") +
+              '"><span>' +
+              d +
+              "</span>" +
+              sub +
+              "</button>";
+          }
+          h += "</div>" + LEGEND;
+          pop.innerHTML = h;
+        }
+
+        function renderTimes() {
+          var h =
+            '<div class="tfg-cal-head">' +
+            '<button type="button" class="tfg-cal-nav" data-back="1" aria-label="Back to calendar">&lsaquo;</button>' +
+            "<b>" +
+            pretty(chosenDate) +
+            '</b><span style="width:40px"></span></div>' +
+            '<p class="tfg-pick-title">Choose a time &middot; ' +
+            plural(SLOTS_PER_TIME) +
+            " per time</p>" +
+            '<div class="tfg-times">';
+          TIMES.forEach(function (t) {
+            var past = timePassed(chosenDate, t);
+            var left = timeLeft(chosenDate, t);
+            var st = past ? "past" : timeStatus(left);
+            var sel =
+              dateVal.value === chosenDate && timeVal.value === t.label
+                ? " sel"
+                : "";
+            var dis = past || st === "full";
+            var sub = past
+              ? "Passed"
+              : st === "full"
+                ? "Full"
+                : plural(left) + " left";
+            h +=
+              '<button type="button" class="tfg-time ' +
+              st +
+              sel +
+              '" data-time="' +
+              t.label +
+              '"' +
+              (dis ? " disabled" : "") +
+              ">" +
+              "<b>" +
+              t.label +
+              "</b><small>" +
+              sub +
+              "</small></button>";
+          });
+          h += "</div>" + LEGEND;
+          pop.innerHTML = h;
+        }
+
+        function render() {
+          view === "time" ? renderTimes() : renderMonth();
+        }
+
+        function reveal() {
+          setTimeout(function () {
+            try {
+              pop.scrollIntoView({ block: "nearest", behavior: "smooth" });
+            } catch (e) {}
+          }, 30);
+        }
+
+        function showNote() {
+          if (!dateVal.value || !timeVal.value) {
+            note.textContent = "";
+            return;
+          }
+          var t = TIMES.filter(function (x) {
+            return x.label === timeVal.value;
+          })[0];
+          var left = t ? timeLeft(dateVal.value, t) : 0;
+          var st = timeStatus(left);
+          note.textContent =
+            plural(left) +
+            " left at " +
+            timeVal.value +
+            " on " +
+            pretty(dateVal.value);
+          note.style.color =
+            st === "low" ? "#f5a623" : st === "full" ? "#ff6b5b" : "#4caf50";
+        }
+
+        function pickDate(key) {
+          chosenDate = key;
+          view = "time";
+          render();
+          reveal();
+        }
+
+        function pickTime(label) {
+          var t = TIMES.filter(function (x) {
+            return x.label === label;
+          })[0];
+          if (!t || timePassed(chosenDate, t) || timeLeft(chosenDate, t) <= 0)
+            return;
+          dateVal.value = chosenDate;
+          timeVal.value = label;
+          shown.value = pretty(chosenDate) + " \u00B7 " + label;
+          showNote();
+          close();
+        }
+
+        function open() {
+          view = "cal";
+          render();
+          pop.classList.add("open");
+          reveal();
+        }
+        function close() {
+          pop.classList.remove("open");
+        }
+
+        shown.addEventListener("click", function () {
+          pop.classList.contains("open") ? close() : open();
+        });
+        shown.addEventListener("keydown", function (e) {
+          if (e.key === "Tab" || e.key === "Shift") return;
+          if (e.key === "Escape") {
+            close();
+            return;
+          }
+          if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown")
+            open();
+          e.preventDefault();
+        });
+        shown.addEventListener("beforeinput", function (e) {
+          e.preventDefault();
+        });
+        shown.addEventListener("paste", function (e) {
+          e.preventDefault();
+        });
+        shown.addEventListener("drop", function (e) {
+          e.preventDefault();
+        });
+
+        pop.addEventListener("click", function (e) {
+          var nav = e.target.closest("[data-nav]");
+          if (nav) {
+            if (nav.disabled) return;
+            viewMonth = Math.min(
+              lastMonth,
+              Math.max(
+                firstMonth,
+                viewMonth + Number(nav.getAttribute("data-nav")),
+              ),
+            );
+            render();
+            return;
+          }
+          if (e.target.closest("[data-back]")) {
+            view = "cal";
+            render();
+            return;
+          }
+          var day = e.target.closest("[data-date]");
+          if (day && !day.disabled) {
+            pickDate(day.getAttribute("data-date"));
+            return;
+          }
+          var time = e.target.closest("[data-time]");
+          if (time && !time.disabled) pickTime(time.getAttribute("data-time"));
+        });
+
+        document.addEventListener("click", function (e) {
+          var path = e.composedPath ? e.composedPath() : [];
+          if (path.indexOf(wrap) === -1) close();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") close();
+        });
+
+        form.addEventListener("submit", function (e) {
+          var t = TIMES.filter(function (x) {
+            return x.label === timeVal.value;
+          })[0];
+          if (!dateVal.value || !t || timeLeft(dateVal.value, t) <= 0) {
+            e.preventDefault();
+            dateVal.value = "";
+            timeVal.value = "";
+            shown.value = "";
+            note.textContent =
+              "That time just filled up. Please choose another date or time.";
+            note.style.color = "#ff6b5b";
+            open();
+            return;
+          }
+          if (!SLOTS_URL) {
+            var c = loadLocal();
+            if (!c[dateVal.value] || typeof c[dateVal.value] !== "object")
+              c[dateVal.value] = {};
+            c[dateVal.value][timeVal.value] =
+              Number(c[dateVal.value][timeVal.value] || 0) + 1;
+            try {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(c));
+            } catch (err) {}
+          }
+        });
+
+        loadCounts().then(function () {
+          if (pop.classList.contains("open")) render();
+          showNote();
+        });
+      })();
+    </script>
+
+    <script>
+      (function () {
+        var email = document.getElementById("tfg-email");
+        if (!email) return;
+        var GMAIL = /^[a-z0-9._%+\-]+@gmail\.com$/;
+
+        function check() {
+          var v = email.value.trim().toLowerCase();
+          if (v === "") {
+            email.setCustomValidity("");
+            return;
+          }
+          email.setCustomValidity(
+            GMAIL.test(v)
+              ? ""
+              : "Please use a Gmail address, like yourname@gmail.com",
+          );
+        }
+
+        email.addEventListener("input", check);
+        email.addEventListener("blur", function () {
+          email.value = email.value.trim().toLowerCase();
+          check();
+        });
+        check();
+      })();
+    </script>
+
+    <script>
+      (function () {
+        var root = document.getElementById("tfg-slide");
+        if (!root) return;
+        var form = root.closest("form");
+        var submitBtn = document.getElementById("tfg-submit");
+        var track = root.querySelector(".tfg-slide__track");
+        var capsule = root.querySelector(".tfg-slide__capsule");
+        var content = root.querySelector(".tfg-slide__content");
+        var labelEl = root.querySelector(".tfg-slide__label");
+        var plainEl = root.querySelector(".tfg-slide__text--plain");
+        var errEl = root.querySelector(".tfg-slide__text--error");
+        var arrowEl = root.querySelector(".tfg-slide__arrow");
+        var spinEl = root.querySelector(".tfg-slide__spin");
+        var doneTextEl = root.querySelector(".tfg-slide__donetext");
+        var srEl = root.querySelector(".tfg-slide__sr");
+
+        var DONE_LABEL = "Booked";
+        var ERROR_LABEL = "Please check your details";
+        var SPEED = 50;
+        var BOUNCE = 0.38;
+        var DIP = 0.026;
+        var HOLD_MS = 1500;
+        var RADIUS = 14;
+
+        var PAD = 4,
+          SQUASH_MAX = 0.08,
+          SQUASH_DIV = 110,
+          SWELL = 1.03,
+          MIN_PENDING = 300;
+        var SHAKE = [0, -5, 5, -3, 3, -1, 0];
+        var mq =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)");
+        var reduce = !!(mq && mq.matches);
+
+        var K = 260 + (SPEED / 100) * 640,
+          MASS = 0.9,
+          CRIT = 2 * Math.sqrt(K * MASS);
+        function clamp(v, a, b) {
+          return Math.min(b, Math.max(a, v));
+        }
+
+        var W = 0,
+          H = 56,
+          GRIP = 48,
+          INNER = 0,
+          TRAVEL = 1,
+          gripR = Math.max(0, RADIUS - PAD);
+        var S = { x: 0, anchor: 0, shown: 1, spin: 0, pulse: 1, shake: 0 };
+        var phase = "idle",
+          held = false,
+          hot = false,
+          enabled = true;
+        var grip = null,
+          timer = 0,
+          homeTimer = 0,
+          run = 0,
+          lastPercent = -1;
+        var submitting = false,
+          externalBusy = false,
+          startedAt = 0,
+          viaKeyLast = false,
+          unwatch = null;
+
+        root.style.setProperty("--sc-radius", RADIUS + "px");
+        root.style.setProperty("--sc-grip-r", gripR + "px");
+        root.style.setProperty("--sc-pad", PAD + "px");
+
+        function render() {
+          if (!W) return;
+          var seen = clamp(S.x, 0, TRAVEL);
+          var edge = seen + GRIP + clamp(S.anchor - seen, 0, TRAVEL);
+          capsule.style.clipPath =
+            "inset(0 " + (INNER - edge) + "px 0 0 round " + gripR + "px)";
+          content.style.transform =
+            "translateX(" + ((seen + edge) / 2 - INNER / 2) + "px)";
+          var q = 1 - Math.min(SQUASH_MAX, Math.max(0, -S.x) / SQUASH_DIV);
+          var sw = hot && !held && phase === "idle" && !reduce ? SWELL : 1;
+          capsule.style.transform = "scale(" + q * sw + "," + sw / q + ")";
+          capsule.style.transformOrigin = seen + "px 50%";
+          labelEl.style.opacity = clamp(1 - seen / (TRAVEL * 0.55), 0, 1);
+          arrowEl.style.opacity =
+            S.shown * clamp(1 - (seen - TRAVEL * 0.55) / (TRAVEL * 0.4), 0, 1);
+          spinEl.style.opacity = S.spin;
+          track.style.transform =
+            "translateX(" + S.shake + "px) scale(" + S.pulse + ")";
+          var pct = Math.round((seen / TRAVEL) * 100);
+          if (pct !== lastPercent) {
+            lastPercent = pct;
+            capsule.setAttribute("aria-valuenow", String(pct));
+            capsule.setAttribute(
+              "aria-valuetext",
+              plainEl.textContent + ", " + pct + "%",
+            );
+          }
+        }
+
+        function measure() {
+          var w = root.clientWidth,
+            h = root.clientHeight;
+          if (!w || !h) return;
+          W = w;
+          H = h;
+          GRIP = H - PAD * 2;
+          INNER = W - PAD * 2;
+          TRAVEL = Math.max(1, INNER - GRIP);
+          if (phase === "idle" && !held && !grip) S.x = 0;
+          lastPercent = -1;
+          render();
+        }
+
+        var anims = {};
+        function stop(key) {
+          var a = anims[key];
+          if (a) {
+            cancelAnimationFrame(a.raf);
+            clearTimeout(a.to);
+            delete anims[key];
+          }
+        }
+        function spring(key, target, damping, velocity, done) {
+          stop(key);
+          var v = velocity || 0,
+            last = performance.now(),
+            a = (anims[key] = { raf: 0, to: 0 });
+          function step(now) {
+            var dt = Math.min(0.05, (now - last) / 1000);
+            last = now;
+            var n = Math.max(1, Math.ceil(dt / 0.004)),
+              h = dt / n;
+            for (var i = 0; i < n; i++) {
+              var f = -K * (S[key] - target) - damping * v;
+              v += (f / MASS) * h;
+              S[key] += v * h;
+            }
+            render();
+            if (Math.abs(S[key] - target) < 0.05 && Math.abs(v) < 0.5) {
+              S[key] = target;
+              render();
+              delete anims[key];
+              if (done) done();
+              return;
+            }
+            a.raf = requestAnimationFrame(step);
+          }
+          a.raf = requestAnimationFrame(step);
+        }
+        function sample(f, times, p) {
+          var n = f.length - 1,
+            i;
+          if (!times) {
+            times = [];
+            for (i = 0; i <= n; i++) times.push(i / n);
+          }
+          for (i = 1; i <= n; i++) {
+            if (p <= times[i]) {
+              var seg = (p - times[i - 1]) / (times[i] - times[i - 1] || 1);
+              return f[i - 1] + (f[i] - f[i - 1]) * seg;
+            }
+          }
+          return f[n];
+        }
+        function tween(key, frames, dur, delay, times) {
+          stop(key);
+          var a = (anims[key] = { raf: 0, to: 0 });
+          a.to = setTimeout(
+            function () {
+              var f = typeof frames === "number" ? [S[key], frames] : frames;
+              var t0 = performance.now();
+              function tick(now) {
+                var t = Math.min(1, (now - t0) / (dur * 1000));
+                S[key] = sample(f, times, 1 - Math.pow(1 - t, 4));
+                render();
+                if (t < 1) a.raf = requestAnimationFrame(tick);
+                else delete anims[key];
+              }
+              a.raf = requestAnimationFrame(tick);
+            },
+            (delay || 0) * 1000,
+          );
+        }
+
+        function setPhase(p) {
+          phase = p;
+          root.setAttribute("data-phase", p);
+          srEl.textContent =
+            p === "pending"
+              ? "Working"
+              : p === "done"
+                ? DONE_LABEL
+                : p === "error"
+                  ? errEl.textContent
+                  : "";
+          render();
+        }
+        function setHeld(on) {
+          held = on;
+          if (on) root.setAttribute("data-held", "");
+          else root.removeAttribute("data-held");
+          render();
+        }
+        function goHome(vel) {
+          if (reduce) tween("x", 0, 0.2);
+          else
+            spring(
+              "x",
+              0,
+              CRIT * (1 - clamp(BOUNCE, 0, 0.5)),
+              Math.min(0, vel),
+            );
+        }
+        function settle() {
+          setPhase("idle");
+          tween("shown", 1, 0.2, 0.12);
+          if (reduce) {
+            stop("anchor");
+            S.anchor = 0;
+            render();
+          } else spring("anchor", 0, CRIT);
+        }
+        function resolve(viaKey) {
+          setPhase("done");
+          S.anchor = S.x;
+          tween("spin", 0, 0.12, 0);
+          if (reduce) {
+            stop("x");
+            S.x = 0;
+            render();
+          } else {
+            spring("x", 0, CRIT);
+            if (!viaKey && DIP > 0)
+              tween("pulse", [1, 1 - DIP, 1], 0.46, 0.1, [0, 0.62, 1]);
+          }
+          clearTimeout(timer);
+          if (HOLD_MS > 0) timer = setTimeout(settle, HOLD_MS);
+        }
+        function reject(msg) {
+          externalBusy = false;
+          submitting = false;
+          errEl.textContent = msg || ERROR_LABEL;
+          setPhase("error");
+          tween("spin", 0, 0.12, 0);
+          tween("shown", 1, 0.2, 0.12);
+          if (reduce) goHome(0);
+          else {
+            tween("shake", SHAKE, 0.45, 0);
+            homeTimer = setTimeout(function () {
+              if (!grip) goHome(0);
+            }, 300);
+          }
+          clearTimeout(timer);
+          timer = setTimeout(
+            function () {
+              setPhase("idle");
+            },
+            Math.max(HOLD_MS, 1500),
+          );
+        }
+
+        function commit(viaKey) {
+          clearTimeout(timer);
+          clearTimeout(homeTimer);
+          run++;
+          stop("x");
+          S.x = TRAVEL;
+          render();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            reject("Please complete the form");
+            return;
+          }
+          setPhase("pending");
+          tween("shown", 0, 0.2, 0);
+          tween("spin", 1, 0.2, 0);
+          submitting = true;
+          startedAt = performance.now();
+          viaKeyLast = viaKey;
+          if (form.requestSubmit) form.requestSubmit();
+          else submitBtn.click();
+        }
+
+        form.addEventListener("submit", function (e) {
+          if (!submitting) return;
+          setTimeout(function () {
+            submitting = false;
+            if (phase !== "pending") return;
+            if (e.defaultPrevented) {
+              if (!externalBusy) reject();
+              return;
+            }
+            var id = run;
+            setTimeout(
+              function () {
+                if (id === run && phase === "pending") resolve(viaKeyLast);
+              },
+              Math.max(0, MIN_PENDING - (performance.now() - startedAt)),
+            );
+          }, 0);
+        });
+
+        function local(cx) {
+          var r = track.getBoundingClientRect();
+          return (cx - r.left) / (r.width / W || 1);
+        }
+        function velocityOf(h) {
+          if (h.length < 2) return 0;
+          return (
+            ((h[h.length - 1][1] - h[0][1]) /
+              Math.max(1, h[h.length - 1][0] - h[0][0])) *
+            1000
+          );
+        }
+        function onMove(e) {
+          if (!grip || grip.id !== e.pointerId) return;
+          var at = local(e.clientX);
+          if (grip.grab === null) {
+            grip.grab = at - S.x;
+            return;
+          }
+          var next = clamp(at - grip.grab, 0, TRAVEL);
+          if (Math.abs(next - S.x) > 0.5) grip.moved = true;
+          grip.hist.push([e.timeStamp, next]);
+          if (grip.hist.length > 4) grip.hist.shift();
+          S.x = next;
+          render();
+        }
+        function onUp(e) {
+          if (!grip || grip.id !== e.pointerId) return;
+          var g = grip;
+          grip = null;
+          if (unwatch) unwatch();
+          try {
+            track.releasePointerCapture(e.pointerId);
+          } catch (err) {}
+          setHeld(false);
+          if (S.x >= TRAVEL) commit(false);
+          else if (g.moved) goHome(velocityOf(g.hist));
+        }
+        track.addEventListener("pointerdown", function (e) {
+          if (
+            !enabled ||
+            grip ||
+            phase === "pending" ||
+            phase === "done" ||
+            e.button !== 0
+          )
+            return;
+          stop("x");
+          clearTimeout(homeTimer);
+          grip = { id: e.pointerId, grab: null, moved: false, hist: [] };
+          setHeld(true);
+          try {
+            track.setPointerCapture(e.pointerId);
+          } catch (err) {}
+          if (unwatch) unwatch();
+          window.addEventListener("pointermove", onMove);
+          window.addEventListener("pointerup", onUp);
+          window.addEventListener("pointercancel", onUp);
+          unwatch = function () {
+            window.removeEventListener("pointermove", onMove);
+            window.removeEventListener("pointerup", onUp);
+            window.removeEventListener("pointercancel", onUp);
+            unwatch = null;
+          };
+        });
+
+        capsule.addEventListener("pointerenter", function (e) {
+          if (
+            e.pointerType === "mouse" &&
+            window.matchMedia &&
+            window.matchMedia("(hover: hover) and (pointer: fine)").matches
+          ) {
+            hot = true;
+            render();
+          }
+        });
+        capsule.addEventListener("pointerleave", function () {
+          hot = false;
+          render();
+        });
+
+        capsule.addEventListener("keydown", function (e) {
+          if (!enabled || phase === "pending" || phase === "done") return;
+          var step = TRAVEL / 10;
+          if (e.key === "End" || e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            commit(true);
+          } else if (e.key === "ArrowRight" || e.key === "ArrowUp") {
+            e.preventDefault();
+            var next = Math.min(TRAVEL, S.x + step);
+            stop("x");
+            S.x = next;
+            render();
+            if (next >= TRAVEL) commit(true);
+          } else if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
+            e.preventDefault();
+            stop("x");
+            S.x = Math.max(0, S.x - step);
+            render();
+          } else if (e.key === "Home" || e.key === "Escape") {
+            e.preventDefault();
+            if (grip) onUp({ pointerId: grip.id });
+            else {
+              stop("x");
+              S.x = 0;
+              render();
+            }
+          }
+        });
+
+        function refreshEnabled() {
+          enabled = !!form.querySelector('input[name="payment"]:checked');
+          if (enabled) root.removeAttribute("data-disabled");
+          else root.setAttribute("data-disabled", "");
+          capsule.tabIndex = enabled ? 0 : -1;
+          if (enabled) capsule.removeAttribute("aria-disabled");
+          else capsule.setAttribute("aria-disabled", "true");
+        }
+        form.addEventListener("change", refreshEnabled);
+        refreshEnabled();
+
+        window.tfgSlide = {
+          setLabel: function (text) {
+            plainEl.textContent = text;
+            capsule.setAttribute("aria-label", text);
+            lastPercent = -1;
+            render();
+          },
+          setDoneLabel: function (text) {
+            DONE_LABEL = text;
+            doneTextEl.textContent = text;
+          },
+          busy: function () {
+            externalBusy = true;
+          },
+          fail: function (msg) {
+            reject(msg);
+          },
+        };
+
+        if (window.ResizeObserver) new ResizeObserver(measure).observe(root);
+        else window.addEventListener("resize", measure);
+        measure();
+      })();
+    </script>
+
+    <script>
+      (function () {
+        var GATEWAY = { connected: false, tokenize: null };
+
+        var TFG_ACCOUNTS = {
+          GCash: { name: "", number: "" },
+          Maya: { name: "", number: "" },
+        };
+
+        var PAYMENT_LINKS = {
+          card: "",
+          bank: "",
+          wallet: "",
+        };
+
+        var CASH = { holdMinutes: 15, cancelHours: 2 };
+
+        var zone = document.querySelector(".tfg-pay");
+        if (!zone) return;
+        var submitBtn = document.getElementById("tfg-submit");
+        var submitText = submitBtn.innerHTML;
+        var PAY_TEXT = "&raquo; Confirm &amp; Pay Online &laquo;";
+        var form = zone.closest("form");
+        var note = document.getElementById("tfg-pay-note");
+        var radios = zone.querySelectorAll('input[name="payment"]');
+        var live = !!(
+          GATEWAY.connected && typeof GATEWAY.tokenize === "function"
+        );
+        function $(id) {
+          return document.getElementById(id);
+        }
+
+        var panels = {
+          card: $("tfg-form-card"),
+          bank: $("tfg-form-bank"),
+          wallet: $("tfg-form-wallet"),
+          cash: $("tfg-form-cash"),
+        };
+        var num = $("tfg-cc-number"),
+          nm = $("tfg-cc-name"),
+          exp = $("tfg-cc-exp"),
+          cvv = $("tfg-cc-cvv");
+        var brandEl = $("tfg-card-brand"),
+          tokenInput = $("tfg-pay-token");
+        $("tfg-card-tag").hidden = live;
+
+        function digits(s) {
+          return String(s).replace(/\D/g, "");
+        }
+        function brandOf(d) {
+          if (/^4/.test(d)) return "Visa";
+          var n2 = parseInt(d.slice(0, 2), 10),
+            n4 = parseInt(d.slice(0, 4), 10);
+          if ((n2 >= 51 && n2 <= 55) || (n4 >= 2221 && n4 <= 2720))
+            return "Mastercard";
+          if (n4 >= 3528 && n4 <= 3589) return "JCB";
+          return "";
+        }
+        function luhn(d) {
+          var sum = 0,
+            alt = false;
+          for (var i = d.length - 1; i >= 0; i--) {
+            var n = parseInt(d.charAt(i), 10);
+            if (alt) {
+              n *= 2;
+              if (n > 9) n -= 9;
+            }
+            sum += n;
+            alt = !alt;
+          }
+          return sum % 10 === 0;
+        }
+
+        function validateCard() {
+          [num, nm, exp, cvv].forEach(function (i) {
+            check(i);
+          });
+        }
+        function wipeCard() {
+          [num, nm, exp, cvv].forEach(function (i) {
+            i.value = "";
+          });
+          brandEl.textContent = "";
+        }
+
+        num.addEventListener("input", function () {
+          var d = digits(num.value).slice(0, 16);
+          num.value = d.replace(/(.{4})/g, "$1 ").trim();
+          brandEl.textContent = brandOf(d);
+          validateCard();
+        });
+        exp.addEventListener("input", function () {
+          var d = digits(exp.value).slice(0, 4);
+          exp.value = d.length > 2 ? d.slice(0, 2) + "/" + d.slice(2) : d;
+          validateCard();
+        });
+        cvv.addEventListener("input", function () {
+          cvv.value = digits(cvv.value).slice(0, 3);
+          validateCard();
+        });
+        nm.addEventListener("input", validateCard);
+
+        var sendBox = $("tfg-wallet-send"),
+          walletNum = $("tfg-wallet-number");
+        function showWalletAccount(label) {
+          var a = TFG_ACCOUNTS[label];
+          if (a && a.number) {
+            $("tfg-wallet-acct").textContent =
+              label + ": " + (a.name ? a.name + " \u00B7 " : "") + a.number;
+            sendBox.setAttribute("data-number", a.number);
+            sendBox.hidden = false;
+          } else {
+            sendBox.hidden = true;
+          }
+        }
+        $("tfg-wallet-copy").addEventListener("click", function () {
+          var btn = this,
+            text = sendBox.getAttribute("data-number") || "";
+          function done() {
+            btn.textContent = "Copied!";
+            setTimeout(function () {
+              btn.textContent = "Copy number";
+            }, 1500);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, function () {});
+          } else {
+            var t = document.createElement("textarea");
+            t.value = text;
+            document.body.appendChild(t);
+            t.select();
+            try {
+              document.execCommand("copy");
+              done();
+            } catch (e) {}
+            document.body.removeChild(t);
+          }
+        });
+        $("tfg-wallet-same").addEventListener("change", function () {
+          var phone = form.elements["phone"];
+          if (this.checked && phone) {
+            walletNum.value = phone.value;
+            walletNum._touched = true;
+            check(walletNum);
+          }
+        });
+
+        function sync() {
+          zone.querySelectorAll(".tfg-pg").forEach(function (g) {
+            var sel = g.querySelector('input[name="payment"]:checked');
+            g.querySelector(".tfg-pg-sel").textContent = sel
+              ? sel.getAttribute("data-label")
+              : "";
+          });
+
+          var c = zone.querySelector('input[name="payment"]:checked');
+          var group = c ? c.getAttribute("data-group") : "";
+          var label = c ? c.getAttribute("data-label") : "";
+
+          Object.keys(panels).forEach(function (k) {
+            var show = group === k && !(k === "card" && PAYMENT_LINKS.card);
+            panels[k].hidden = !show;
+
+            panels[k].querySelectorAll("input").forEach(function (i) {
+              i.disabled = !show;
+              if (i.hasAttribute("data-req")) i.required = show;
+            });
+          });
+          tokenInput.disabled = !(live && group === "card");
+          if (group === "bank") $("tfg-bank-name").textContent = label;
+          if (group === "wallet") {
+            $("tfg-wallet-name").textContent = label;
+            showWalletAccount(label);
+          }
+          checkAll();
+
+          if (!c) {
+            note.hidden = true;
+            return;
+          }
+          var payOnline = group !== "cash" && !!PAYMENT_LINKS[group];
+          submitBtn.innerHTML = payOnline ? PAY_TEXT : submitText;
+          if (window.tfgSlide)
+            window.tfgSlide.setLabel(
+              payOnline ? "Slide to confirm & pay" : "Slide to confirm booking",
+            );
+          note.className = "tfg-pay-note";
+          if (group === "cash") {
+            note.textContent =
+              "Pay in cash at the shop after the service. Choose how we should confirm your slot and tick the arrival promise below.";
+          } else if (payOnline) {
+            note.textContent =
+              "You will be taken to a secure payment page to finish paying. Your card, bank or wallet login is entered there, never on this website. Never share your password, PIN or OTP with anyone, including TFG.";
+          } else if (group === "card") {
+            note.textContent = live
+              ? "Your card details go straight to our secure payment gateway and are never emailed or stored by TFG."
+              : "Card payment is in preview: nothing you type here is sent, saved or charged. TFG will send a secure payment link after confirming your schedule.";
+          } else {
+            note.textContent =
+              "Once TFG confirms your schedule, we will send the payment details. Never share your password, PIN or OTP with anyone, including TFG.";
+          }
+          note.hidden = false;
+        }
+
+        radios.forEach(function (r) {
+          r.addEventListener("change", sync);
+
+          r.addEventListener("invalid", function () {
+            var d = r.closest("details");
+            if (d) d.open = true;
+          });
+        });
+        Object.keys(panels).forEach(function (k) {
+          panels[k].querySelectorAll("input").forEach(function (i) {
+            i.addEventListener("invalid", function () {
+              var d = i.closest("details");
+              if (d) d.open = true;
+            });
+          });
+        });
+
+        form.addEventListener("submit", function (e) {
+          var c = zone.querySelector('input[name="payment"]:checked');
+          var isCard = c && c.getAttribute("data-group") === "card";
+          if (!isCard) {
+            wipeCard();
+            return;
+          }
+          if (!live || form.getAttribute("data-tokenized") === "1") {
+            wipeCard();
+            return;
+          }
+
+          e.preventDefault();
+          var card = {
+            number: digits(num.value),
+            name: nm.value.trim(),
+            exp: exp.value,
+            cvc: cvv.value,
+          };
+          Promise.resolve(GATEWAY.tokenize(card))
+            .then(function (token) {
+              tokenInput.value = token;
+              wipeCard();
+              form.setAttribute("data-tokenized", "1");
+              form.submit();
+            })
+            .catch(function () {
+              note.textContent =
+                "We could not verify your card. Please check the details and try again.";
+              note.hidden = false;
+            });
+        });
+
+        var groups = zone.querySelectorAll(".tfg-pg");
+        var reduce = !!(
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        );
+        var busy = 0;
+
+        function slide(g, opening) {
+          if (g._a) {
+            g._a.cancel();
+            g._a = null;
+            busy--;
+          }
+          g._target = opening;
+          if (reduce || !g.animate) {
+            g.open = opening;
+            return;
+          }
+          var from = g.offsetHeight,
+            to;
+          if (opening) {
+            g.open = true;
+            to = g.offsetHeight;
+          } else {
+            to = g.querySelector("summary").offsetHeight + 2;
+          }
+          busy++;
+          var a = (g._a = g.animate(
+            { height: [from + "px", to + "px"] },
+            { duration: 280, easing: "cubic-bezier(.4,0,.2,1)" },
+          ));
+          a.onfinish = function () {
+            if (g._a !== a) return;
+            g._a = null;
+            busy--;
+            g.open = opening;
+          };
+        }
+
+        groups.forEach(function (g) {
+          g.querySelector("summary").addEventListener("click", function (e) {
+            e.preventDefault();
+            var isOpen = g._a ? g._target : g.open;
+            var opening = !isOpen;
+            if (opening) {
+              groups.forEach(function (o) {
+                if (o !== g && (o._a ? o._target : o.open)) slide(o, false);
+              });
+            }
+            slide(g, opening);
+          });
+
+          g.addEventListener("toggle", function () {
+            if (busy || !g.open) return;
+            groups.forEach(function (o) {
+              if (o !== g) o.open = false;
+            });
+          });
+        });
+
+        form.addEventListener("submit", function (e) {
+          if (e.defaultPrevented) return;
+          var c = zone.querySelector('input[name="payment"]:checked');
+          if (!c) return;
+          var group = c.getAttribute("data-group");
+          var link = PAYMENT_LINKS[group];
+          if (group === "cash" || !link) return;
+
+          e.preventDefault();
+          if (window.tfgSlide) window.tfgSlide.busy();
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Opening secure payment…";
+
+          var fd = new FormData(form);
+          fd.append(
+            "payment_status",
+            "Sent to online payment page. Check PayMongo to confirm it was paid.",
+          );
+
+          fetch(form.action, {
+            method: "POST",
+            body: fd,
+            headers: { Accept: "application/json" },
+          })
+            .then(function (r) {
+              if (!r.ok) throw new Error("send failed");
+              window.location.href = link;
+            })
+            .catch(function () {
+              note.textContent =
+                "We could not send your booking. Please check your connection and try again.";
+              note.className = "tfg-pay-note err";
+              note.hidden = false;
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = PAY_TEXT;
+              if (window.tfgSlide)
+                window.tfgSlide.fail("Could not send booking");
+            });
+        });
+
+        var LETTERS, HASLETTER;
+        try {
+          LETTERS = new RegExp("^[\\p{L} .'\\-]+$", "u");
+          HASLETTER = new RegExp("\\p{L}", "u");
+        } catch (err) {
+          LETTERS = /^[A-Za-z .'\-]+$/;
+          HASLETTER = /[A-Za-z]/;
+        }
+
+        function nameMsg(v, what) {
+          v = String(v).trim().replace(/\s+/g, " ");
+          if (!v) return "Enter " + what + ".";
+          if (!LETTERS.test(v)) return "Use letters only for " + what + ".";
+          var words = v.split(" ").filter(function (w) {
+            return HASLETTER.test(w);
+          });
+          if (words.length < 2) return "Enter the first and last name.";
+          return "";
+        }
+
+        var V = {
+          cardnum: function (i) {
+            var d = digits(i.value);
+            if (!d) return "Enter your card number.";
+            if (d.length < 16)
+              return "A card number has 16 digits (" + d.length + " so far).";
+            if (!brandOf(d)) return "We accept Visa, Mastercard and JCB only.";
+            if (!luhn(d))
+              return "That card number looks wrong. Please check the digits.";
+            return "";
+          },
+          cardname: function (i) {
+            return nameMsg(i.value, "the name on your card");
+          },
+          exp: function (i) {
+            var s = i.value.trim();
+            if (!s) return "Enter the expiry date.";
+            var m = s.match(/^(\d\d)\/(\d\d)$/);
+            if (!m) return "Use the format MM/YY.";
+            var mm = parseInt(m[1], 10),
+              yy = 2000 + parseInt(m[2], 10),
+              now = new Date();
+            if (mm < 1 || mm > 12) return "The month must be 01 to 12.";
+            if (new Date(yy, mm, 0, 23, 59, 59) < now)
+              return "This card has expired.";
+            if (yy > now.getFullYear() + 15) return "Check the expiry year.";
+            return "";
+          },
+          cvv: function (i) {
+            if (!i.value) return "Enter the 3-digit security code.";
+            return /^\d{3}$/.test(i.value)
+              ? ""
+              : "The security code has 3 digits.";
+          },
+          fullname: function (i) {
+            return nameMsg(i.value, "the account name");
+          },
+          last4: function (i) {
+            if (!i.value)
+              return "Enter the last 4 digits of your account number.";
+            return /^\d{4}$/.test(i.value) ? "" : "Enter exactly 4 digits.";
+          },
+          phone: function (i) {
+            var s = i.value.trim();
+            if (!s) return "Enter your wallet mobile number.";
+            if (!/^(\+63|0)9\d{9}$/.test(s))
+              return "Use a PH mobile number like 09171234567.";
+            if (/^(\d)\1+$/.test(s.replace(/^(\+63|0)9/, "")))
+              return "That number does not look real.";
+            return "";
+          },
+          agree: function (i) {
+            return i.checked ? "" : "Please tick the box to keep your slot.";
+          },
+          pick: function (i) {
+            return form.querySelector('input[name="' + i.name + '"]:checked')
+              ? ""
+              : "Choose how we should confirm your booking.";
+          },
+        };
+
+        var SAN = {
+          phone: function (v) {
+            return v.replace(/[^\d+]/g, "").slice(0, 13);
+          },
+          last4: function (v) {
+            return digits(v).slice(0, 4);
+          },
+        };
+
+        var errN = 0;
+        function check(i) {
+          var kind = i.getAttribute("data-v");
+          if (i.disabled) i._touched = false;
+          var m =
+            kind && V[kind] && i.required && !i.disabled ? V[kind](i) : "";
+          i.setCustomValidity(m);
+          var w = i.closest(".tfg-ff, .tfg-fs");
+          if (!kind || !w) return m;
+          var err = w.querySelector(":scope > .tfg-err");
+          if (!err) {
+            err = document.createElement("small");
+            err.className = "tfg-err";
+            err.id = "tfg-err-" + ++errN;
+            w.appendChild(err);
+          }
+          i.setAttribute("aria-describedby", err.id);
+          var shown = !!i._touched;
+          var bad = shown && !!m;
+          var choice = i.type === "checkbox" || i.type === "radio";
+          w.classList.toggle("is-bad", bad);
+          w.classList.toggle(
+            "is-ok",
+            shown && !m && !choice && String(i.value).trim() !== "",
+          );
+          err.textContent = bad ? m : "";
+          i.setAttribute("aria-invalid", bad ? "true" : "false");
+          return m;
+        }
+        function checkAll() {
+          zone.querySelectorAll("[data-v]").forEach(function (i) {
+            check(i);
+          });
+        }
+
+        zone.querySelectorAll("[data-v]").forEach(function (i) {
+          var kind = i.getAttribute("data-v");
+          var choice = i.type === "checkbox" || i.type === "radio";
+          i.addEventListener(choice ? "change" : "input", function () {
+            if (SAN[kind]) {
+              var s = SAN[kind](i.value);
+              if (s !== i.value) i.value = s;
+            }
+            if (choice) i._touched = true;
+            if (i.type === "radio") {
+              form
+                .querySelectorAll('input[name="' + i.name + '"]')
+                .forEach(function (o) {
+                  o._touched = true;
+                  check(o);
+                });
+            } else {
+              check(i);
+            }
+          });
+          i.addEventListener("blur", function () {
+            i._touched = true;
+            check(i);
+          });
+
+          i.addEventListener("invalid", function () {
+            i._touched = true;
+            check(i);
+          });
+        });
+
+        zone.querySelectorAll(".tfg-copyname").forEach(function (cb) {
+          var target = $(cb.getAttribute("data-target"));
+          if (!target) return;
+          cb.addEventListener("change", function () {
+            var src = form.elements["name"];
+            if (!cb.checked || !src) return;
+            var v = String(src.value).trim().replace(/\s+/g, " ");
+            target.value = cb.hasAttribute("data-upper") ? v.toUpperCase() : v;
+            target._touched = true;
+            check(target);
+          });
+          target.addEventListener("input", function () {
+            cb.checked = false;
+          });
+        });
+
+        var REF_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+        function makeRef() {
+          var out = "",
+            buf = null;
+          try {
+            buf = new Uint8Array(6);
+            (window.crypto || window.msCrypto).getRandomValues(buf);
+          } catch (e) {
+            buf = null;
+          }
+          for (var n = 0; n < 6; n++)
+            out += REF_CHARS.charAt(
+              (buf ? buf[n] : Math.floor(Math.random() * 256)) %
+                REF_CHARS.length,
+            );
+          return "TFG-" + out;
+        }
+        var refCode = makeRef();
+        $("tfg-ref-code").textContent = refCode;
+        $("tfg-ref-input").value = refCode;
+
+        zone.querySelectorAll('[data-cash="hold"]').forEach(function (el) {
+          el.textContent = CASH.holdMinutes;
+        });
+        zone.querySelectorAll('[data-cash="cancel"]').forEach(function (el) {
+          el.textContent =
+            CASH.cancelHours + (CASH.cancelHours === 1 ? " hour" : " hours");
+        });
+
+        form.querySelector('input[name="cash_policy"]').value =
+          "Agreed: arrive within " +
+          CASH.holdMinutes +
+          " min, cancel " +
+          CASH.cancelHours +
+          "h before";
+
+        $("tfg-ref-copy").addEventListener("click", function () {
+          var btn = this;
+          function done() {
+            btn.textContent = "Copied!";
+            setTimeout(function () {
+              btn.textContent = "Copy code";
+            }, 1500);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(refCode).then(done, function () {});
+          } else {
+            var t = document.createElement("textarea");
+            t.value = refCode;
+            document.body.appendChild(t);
+            t.select();
+            try {
+              document.execCommand("copy");
+              done();
+            } catch (e) {}
+            document.body.removeChild(t);
+          }
+        });
+
+        sync();
+      })();
+    </script>
+  </body>
+</html>
